@@ -7,8 +7,8 @@ PowerMove is a simple fileless process injector written in PowerShell for inject
 ## Instructions
 To use PowerMove in an existing PowerShell shell
 1. Copy the contents PowerMove.ps1 into a text editor
-2. Edit the $targetPid variable with the PID of the target process to inject into
-3. Edit the $shellcode variable with the payload you wish to inject
+2. Edit the `$targetPid` variable with the PID of the target process to inject into
+3. Edit the `$shellcode` variable with the payload you wish to inject
 4. Copy the contents from the beginning `###` to the end `###` to your clipboard
 5. Paste the contents your existing PowerShell shell and hit `Enter`
 
