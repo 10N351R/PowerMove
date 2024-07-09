@@ -11,6 +11,7 @@ To use PowerMove in an existing PowerShell shell
 3. Edit the `$shellcode` variable with the payload you wish to inject
 4. Copy the contents from the beginning `###` to the end `###` to your clipboard
 5. Paste the contents your existing PowerShell shell and hit `Enter`
+6. Enjoy the benifits fileless process injection
 
 ## Output
 ![alt text](https://github.com/10N351R/PowerMove/blob/main/Images/PowerMove_output.png)
