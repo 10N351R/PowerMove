@@ -9,11 +9,11 @@ Tested on PowerShell version: `5.1.19041.4522`
 
 ## Instructions
 To use PowerMove in an existing PowerShell shell
-1. Copy the contents PowerMove.ps1 into a text editor
+1. Copy the contents of PowerMove.ps1 into a text editor
 2. Edit the `$targetPid` variable with the PID of the target process to inject into
 3. Edit the `$shellcode` variable with the payload you wish to inject
 4. Copy the contents from the beginning `###` to the end `###` to your clipboard
-5. Paste the contents into your existing PowerShell shell and hit `Enter`
+5. Paste the contents into your existing PowerShell shell and press `Enter`
 6. Enjoy the benifits fileless process injection
 
 ## Output
