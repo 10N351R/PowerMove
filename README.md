@@ -24,8 +24,33 @@ To use PowerMove in an existing PowerShell shell
 
 Tested on PowerShell version: `5.1.26100.4202`
 
-## Instructions
-`PowerMove_dynamic.ps1` can be executed in a Visual Basic for Applications (VBA) macro, or directly from PowerShell.
+# PowerMoveNT.ps1
+`PowerMoveNT.ps1` was created as an advancement on `PowerMove_dynamic.ps1` that performs process injection via dynamically identified NTAPIs. 
+
+## Output
+![alt text](https://github.com/10N351R/PowerMove/blob/main/Images/PowerMoveNT_out.jpg)
+
+# PowerMove2.0
+The PowerMove2.0 framework was developed as a dynamic indirect syscall execution framework in PowerShell that leverages runtime-generated syscall stubs, manual marshaling, and delegate-based unmanaged invocation.
+
+Rather than relying on static imports, hardcoded syscall tables, or traditional P/Invoke bindings to `ntdll.dll`, PowerMove2.0 dynamically discovers syscalls from the live `ntdll` image, constructs syscall stubs, binds type delegates, and exposes approachable wrapper functions for interacting with native Windows APIs.
+
+`PowerMove2.0_INDIRECT.ps1` is an advancement on `PowerMoveNT.ps1` that performs process injection via dynamically-identified indirect syscalls. 
+
+PowerMove2.0 uses a dynamic syscall stub generator inspired by [Souhardya's Catharsis](https://github.com/Souhardya/Catharsis)
+![alt text](https://github.com/10N351R/PowerMove/blob/main/Images/PowerMove2.0_indirect_syscall_stub_generator.jpg)
+
+By jumping the standard execution flow to alternative `SYSCALL` instructions for benign NTAPIs while `eax` is loaded with malicious syscall ids, PowerMove2.0 can evade memory-based detection solutions. 
+
+CAVEAT: `PowerMove2.0_INDIRECT.ps1` does not contain any call-stack manipulation techniques. `PowerMove2.0_INDIRECT.ps1` works ONLY on the x64 Windows architecture.
+
+ISSUES: `PowerMove2.0_INDIRECT.ps1` does not contain a limiter for applicable alternative NTAPIs which means a suspicious `SYSCALL` instruction can be incidentally used - will be fixed. `PowerMove2.0_INDIRECT.ps1` performs an initial memory allocation using RWX permissions.
+
+## Output
+![alt text](https://github.com/10N351R/PowerMove/blob/main/Images/PowerMove2.0_out_color.jpg)
+
+# Instructions
+Most PowerMove scripts can be executed in a Visual Basic for Applications (VBA) macro, or directly from PowerShell.
 1. Copy the contents of `PowerMove_dynamic.ps1` into a text editor
 2. Edit the `$targetProcName` variable with the name of the process you want to target (eg. `notepad`,`explorer`,`svchost`)
 3. Edit the `$shellcode` variable with the payload you wish to inject
